@@ -34,3 +34,38 @@ This project is a **single-page static website** built in **one HTML file**, usi
 
 ## 📁 Project Structure
 
+```text
+maulwurf-website/
+│
+├── index.html
+├── img/
+│   └── logo.png
+└── README.md
+
+🚀 Deployment
+
+This website can be deployed easily on:
+
+Hostinger (recommended)
+
+GitHub Pages
+
+Netlify
+
+Any static hosting provider
+
+No server-side configuration is required.
+
+📞 Contact
+
+🌐 Website: https://krot.ge
+
+📧 Email: info@maulwurf.ge
+
+📱 Phone: +995 579 00 10 23
+
+© License
+
+© 2026 Maulwurf (Krot.ge).
+All rights reserved.
+
