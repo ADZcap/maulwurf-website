@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title">მაულვურფი - ჰორიზონტალური მიმართული ბურღვა</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        :root {
+            --royal-blue: #003366;
+            --royal-blue-dark: #002244;
+            --yellow-accent: #FFC107;
+            --steel-gray: #2C3E50;
+            --light-bg: #f4f8fb;
+            --card-bg: #ffffff;
+            --text-dark: #1a1a1a;
+            --shadow: rgba(0,51,102,0.12);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,51,102,0.88), rgba(0,34,68,0.92)), 
+                        url('https://tracto.com/Brand%20Portal/Products/GRUNDODRILL/Marketing-Material/15XP/1431/image-thumb__1431__image-slider/grundodrill-spuelbohranalgen-15XPT-produktansicht-01.993ce369.png') center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 70px;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--yellow-accent);
+            color: var(--text-dark);
+        }
+
+        .hero-content h1 {
+            font-size: 5.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-content p {
+            font-size: 1.7rem;
+            max-width: 85%;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary { background: var(--yellow-accent); color: var(--text-dark); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-telegram  { background: #0088cc; color: white; }
+
+        section { padding: 100px 0; }
+        h2 { font-size: 3.2rem; font-weight: 900; text-align: center; margin-bottom: 2.5rem; color: var(--royal-blue); }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px var(--shadow);
+            padding: 45px;
+            margin-bottom: 35px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 550px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: transform 0.4s ease;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 0 100px;
+        }
+
+        .contact-callout p:first-child { font-size: 2.4rem; font-weight: 900; margin-bottom: 1rem; }
+        .contact-callout p:last-child { font-size: 1.6rem; opacity: 0.92; margin-bottom: 2.5rem; }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 30px 0 45px;
+            padding: 0 15px;
+        }
+
+        .contact-buttons a {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            padding: 16px 0;
+            font-size: 1.15rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            padding: 0 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+
+        .form-group label {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 14px 16px;
+            font-size: 1rem;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        .contact-form button {
+            grid-column: 1 / -1;
+            padding: 16px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            background: var(--yellow-accent);
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            min-height: 1.2em;
+        }
+
+        footer {
+            background: var(--steel-gray);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        footer img { height: 60px; margin-bottom: 15px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            h2 { font-size: 2.8rem; }
+            .hero-content h1 { font-size: 4.2rem; }
+            .hero-content p { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            header { height: 70vh; min-height: 520px; }
+            .hero-content h1 { font-size: 3.4rem; }
+            .logo-header { height: 18px; top: 26px; left: 16px; }
+            .card { padding: 30px; }
+            h2 { font-size: 2.4rem; }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-callout p:first-child { font-size: 2rem; }
+            .contact-callout p:last-child  { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .contact-callout p:first-child { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header data-aos="fade">
+    <img src="images/logo.png" alt="მაულვურფი" class="logo-header" data-aos="fade-down" data-aos-delay="200">
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ka">ქართული</button>
+        <button class="lang-btn" data-lang="ru">Русский</button>
+    </div>
+
+    <div class="hero-content">
+        <h1 data-key="header_title">მაულვურფი</h1>
+        <p data-key="header_subtitle">საუკეთესო ჰორიზონტალური მიმართული ბურღვის სერვისი საქართველოში!</p>
+        <a href="#contact" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="600">შეუკვეთე ახლავე</a>
+    </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="card" data-aos="fade-up">
+            <h2 data-key="about_title">გრუნდოდრილ 15XP</h2>
+            <p data-key="about_text">გრუნდოდრილ 15XP არის ერთ-ერთი ყველაზე ეფექტური და მრავალმხრივი ჰორიზონტალური მიმართული ბურღვის (HDD) მანქანა, რომელიც სპეციალურად შექმნილია სხვადასხვა ტიპის ნიადაგებსა და გეოლოგიურ პირობებში მუშაობისთვის. საქართველოს მრავალფეროვანი გრუნტი – რომელიც მოიცავს კლდოვან წარმონაქმნებს (როგორიცაა გრანიტოიდები, ამფიბოლიტები და სერპენტინიტები კავკასიონის მთებში), თიხოვან, ქვიშიან და ტორფიან ნიადაგებს (როგორიცაა წითელი და ყვითელი ნიადაგები კოლხეთში, ცინამონური და შავმიწები აღმოსავლეთში, ასევე მდელო-ცინამონური და მარილიანი ნიადაგები მშრალ სუბტროპიკებში) – მოითხოვს ტექნიკას, რომელიც ადაპტირებადია და უზრუნველყოფს მაღალ პროდუქტიულობას რთულ რელიეფში.</p>
+            
+            <div class="image-container" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://www.helukabel.de/HELUKABEL/Bilder/POWER/TRACTO_Bohrger%C3%A4t_post_detail_picture.webp" alt="მაულვურფი HDD მანქანა">
+            </div>
+
+            <h3 data-key="about_advantages_title">უპირატესობები საქართველოს პირობებში:</h3>
+            <ul data-aos="fade-up" data-aos-delay="300">
+                <li data-key="about_adv_1"><strong>მრავალფეროვნება ნიადაგებში</strong>: მისი საბურღი ინსტრუმენტები სრულყოფილადაა ადაპტირებული სხვადასხვა ტიპის გრუნტზე, რაც უზრუნველყოფს ოპტიმალურ პროგრესს თიხაში, ქვიშაში, კლდეებში თუ ტორფიან ნიადაგებში. ეს განსაკუთრებით მნიშვნელოვანია საქართველოს მთიან რეგიონებში, სადაც გეოლოგია მოიცავს ტუფებს, მერგელებს და მაღალი სიმტკიცის ქანებს (მაგალითად, 130 MPa-მდე).</li>
+                <li data-key="about_adv_2"><strong>ტექნიკური უპირატესობები</strong>: 140 kN წევის და გაწევის ძალა, TD 61 ტიპის საბურღი ღეროები და ბენტონიტის ტუმბოს მაღალი დებიტი საშუალებას იძლევა მილების დაგების ND 400-მდე 350 მეტრამდე მანძილზე. ეს იდეალურია საქართველოს ურბანულ და მთიან ადგილებში, სადაც ტრადიციული თხრა რთულია რელიეფისა და ეკოლოგიური შეზღუდვების გამო.</li>
+                <li data-key="about_adv_3"><strong>საიმედოობა და კომფორტი</strong>: რობუსტური კონსტრუქცია, დისტანციური მართვა და ინტეგრირებული შერევის სისტემები უზრუნველყოფს გამძლეობას და უსაფრთხოებას რთულ პირობებში, როგორიცაა კავკასიონის სამხრეთ კალთები ან კოლხეთის დაბლობები.</li>
+            </ul>
+
+            <div class="image-container" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://www.go-ing.net/media/_processed_/d/7/csm_25-07-10_HELUKABEL_AB_TRACTO_Bild_2_verkleinert_e74144197a.jpg" alt="მაულვურფი მეგა-მაულვურფი">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TQVIYA -->
+<section id="tqvia">
+    <div class="container">
+        <div class="card" data-aos="fade-up">
+            <h2 data-key="tqvia_title">ტყვია სისტემა</h2>
+            <p data-key="tqvia_text">ჩვენ გვაქვს სისტემა ტყვია, რომელსაც ბალასტიან გრუნტში შეუძლია კომუნიკაციების გაყვანა. ეს პნევმატური ტყვიის ტიპის მოწყობილობა (impact mole) სპეციალურად შექმნილია მკვრივ და ბალასტიან ნიადაგებში მილების და კაბელების დასაგებად უთხრელად, რაც უზრუნველყოფს ეფექტურ და სწრაფ მუშაობას საქართველოს მრავალფეროვან პირობებში.</p>
+            <div class="image-container" data-aos="zoom-in">
+                <img src="https://mido.net.pl/sites/default/files/inline-images/wiertnica%20HDD.jpg" alt="ტყვია სისტემა">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPANY -->
+<section id="company">
+    <div class="container">
+        <div class="card" data-aos="fade-up">
+            <h2 data-key="company_title">რატომ მაულვურფი?</h2>
+            <p data-key="company_intro">რაც შეეხება იმას, თუ რატომ უნდა შეუკვეთოთ სწორედ მაულვურფი – ჩვენ ვართ საუკეთესო ჰორიზონტალური მიმართული ბურღვის კომპანია საქართველოს მაშტაბით. 2017 წლიდან ვფუნქციონირებთ და გვაქვს მდიდარი გამოცდილება მთელ ქვეყანაში, მათ შორის თბილისში, კავკასიონის რეგიონებში და სხვა მშრალ თუ ტენიან ზონებში.</p>
+            <h3 data-key="company_advantages_title">ჩვენი უპირატესობები:</h3>
+            <ul>
+                <li data-key="company_adv_1"><strong>გამოცდილება და პროფესიონალიზმი</strong>: 9 წელზე მეტი პრაქტიკა HDD პროექტებში, რაც უზრუნველყოფს სწრაფ, უსაფრთხო და ეკოლოგიურად სუფთა სამუშაოებს მინიმალური შეფერხებით.</li>
+                <li data-key="company_adv_2"><strong>თანამედროვე ტექნიკა</strong>: ვიყენებთ Grundodrill 15XP-ის მსგავს მოდელებს, რომლებიც ადაპტირებულია საქართველოს სპეციფიკურ გრუნტებზე, და გვაქვს სპეციალური საბურღი თავები რთული ქანებისთვის.</li>
+                <li data-key="company_adv_3"><strong>საქართველოს მაშტაბით მომსახურება</strong>: ვმუშაობთ მთელ ტერიტორიაზე, ურბანულ ზონებში თუ მთიან რაიონებში, და ვუზრუნველყოფთ სრულ სერვისს – დაგეგმარებიდან დამთავრებამდე.</li>
+                <li data-key="company_adv_4"><strong>კლიენტების კმაყოფილება</strong>: როგორც ლოკალური კომპანია, ჩვენ ფოკუსირებულნი ვართ ხარისხზე, დროულობასა და კონკურენტულ ფასებზე, რაც გვაძლევს უპირატესობას უცხოურ თუ სხვა ადგილობრივ კონკურენტებზე.</li>
+            </ul>
+            <p data-key="company_conclusion">თუ გჭირდებათ ჰორიზონტალური ბურღვა მილების, კაბელების ან სხვა ინფრასტრუქტურის დასაგებად, დაგვიკავშირდით – ჩვენ გარანტიას გაძლევთ საუკეთესო შედეგებს საქართველოს უნიკალურ პირობებში!</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <h2 data-key="contact_title">დაგვიკავშირდით ახლავე!</h2>
+        
+        <div class="contact-callout">
+            <p data-key="contact_callout_1">მზად ხართ მიწის ქვეშ წასვლისთვის ჭუჭყიანობის გარეშე?</p>
+            <p data-key="contact_callout_2">მოდით, თქვენი პროექტი ჩავიწყოთ!</p>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="https://wa.me/+995579001023" class="btn btn-whatsapp" data-key="whatsapp_btn">WhatsApp-ით დაგვიკავშირდით</a>
+            <a href="https://t.me/+995579001023" class="btn btn-telegram" data-key="telegram_btn">Telegram-ით დაგვიკავშირდით</a>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-group">
+                <label data-key="form_name_label">თქვენი სახელი</label>
+                <input type="text" id="name" name="name" placeholder="სახელი" required minlength="2">
+                <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label data-key="form_phone_label">ტელეფონი</label>
+                <input type="tel" id="phone" name="phone" placeholder="+995 ..." required pattern="\+995[0-9]{9}">
+                <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label data-key="form_email_label">Email</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                <span class="error-message"></span>
+            </div>
+
+            <div class="form-group full-width">
+                <label data-key="form_message_label">შეტყობინება</label>
+                <textarea id="message" name="message" placeholder="თქვენი პროექტის მოკლე აღწერა..." required minlength="10" rows="5"></textarea>
+                <span class="error-message"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn" disabled data-key="form_submit">გაგზავნა</button>
+            
+            <div id="formStatus" class="form-status" style="display:none; margin-top:20px; padding:15px; border-radius:10px;"></div>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <img src="images/logo.png" alt="მაულვურფი">
+    <p data-key="footer_text">© 2026 მაულვურფი. ყველა უფლება დაცულია.</p>
+</footer>
+
+<script>
+    AOS.init({
+        once: true,
+        duration: window.innerWidth > 768 ? 800 : 600,
+        easing: window.innerWidth > 768 ? 'ease-out-back' : 'ease-out',
+        offset: window.innerWidth > 768 ? 70 : 40,
+        disable: window.innerWidth <= 768 ? 'mobile' : false
+    });
+
+    // Tarjimalar (to'liq)
+    const translations = {
+        ka: {
+            page_title: "მაულვურფი - ჰორიზონტალური მიმართული ბურღვა",
+            header_title: "მაულვურფი",
+            header_subtitle: "საუკეთესო ჰორიზონტალური მიმართული ბურღვის სერვისი საქართველოში!",
+            about_title: "გრუნდოდრილ 15XP",
+            about_text: "გრუნდოდრილ 15XP არის ერთ-ერთი ყველაზე ეფექტური და მრავალმხრივი ჰორიზონტალური მიმართული ბურღვის (HDD) მანქანა, რომელიც სპეციალურად შექმნილია სხვადასხვა ტიპის ნიადაგებსა და გეოლოგიურ პირობებში მუშაობისთვის. საქართველოს მრავალფეროვანი გრუნტი – რომელიც მოიცავს კლდოვან წარმონაქმნებს (როგორიცაა გრანიტოიდები, ამფიბოლიტები და სერპენტინიტები კავკასიონის მთებში), თიხოვან, ქვიშიან და ტორფიან ნიადაგებს (როგორიცაა წითელი და ყვითელი ნიადაგები კოლხეთში, ცინამონური და შავმიწები აღმოსავლეთში, ასევე მდელო-ცინამონური და მარილიანი ნიადაგები მშრალ სუბტროპიკებში) – მოითხოვს ტექნიკას, რომელიც ადაპტირებადია და უზრუნველყოფს მაღალ პროდუქტიულობას რთულ რელიეფში.",
+            about_advantages_title: "უპირატესობები საქართველოს პირობებში:",
+            about_adv_1: "<strong>მრავალფეროვნება ნიადაგებში</strong>: მისი საბურღი ინსტრუმენტები სრულყოფილადაა ადაპტირებული სხვადასხვა ტიპის გრუნტზე, რაც უზრუნველყოფს ოპტიმალურ პროგრესს თიხაში, ქვიშაში, კლდეებში თუ ტორფიან ნიადაგებში. ეს განსაკუთრებით მნიშვნელოვანია საქართველოს მთიან რეგიონებში, სადაც გეოლოგია მოიცავს ტუფებს, მერგელებს და მაღალი სიმტკიცის ქანებს (მაგალითად, 130 MPa-მდე).",
+            about_adv_2: "<strong>ტექნიკური უპირატესობები</strong>: 140 kN წევის და გაწევის ძალა, TD 61 ტიპის საბურღი ღეროები და ბენტონიტის ტუმბოს მაღალი დებიტი საშუალებას იძლევა მილების დაგების ND 400-მდე 350 მეტრამდე მანძილზე. ეს იდეალურია საქართველოს ურბანულ და მთიან ადგილებში, სადაც ტრადიციული თხრა რთულია რელიეფისა და ეკოლოგიური შეზღუდვების გამო.",
+            about_adv_3: "<strong>საიმედოობა და კომფორტი</strong>: რობუსტური კონსტრუქცია, დისტანციური მართვა და ინტეგრირებული შერევის სისტემები უზრუნველყოფს გამძლეობას და უსაფრთხოებას რთულ პირობებში, როგორიცაა კავკასიონის სამხრეთ კალთები ან კოლხეთის დაბლობები.",
+            tqvia_title: "ტყვია სისტემა",
+            tqvia_text: "ჩვენ გვაქვს სისტემა ტყვია, რომელსაც ბალასტიან გრუნტში შეუძლია კომუნიკაციების გაყვანა. ეს პნევმატური ტყვიის ტიპის მოწყობილობა (impact mole) სპეციალურად შექმნილია მკვრივ და ბალასტიან ნიადაგებში მილების და კაბელების დასაგებად უთხრელად, რაც უზრუნველყოფს ეფექტურ და სწრაფ მუშაობას საქართველოს მრავალფეროვან პირობებში.",
+            company_title: "რატომ მაულვურფი?",
+            company_intro: "რაც შეეხება იმას, თუ რატომ უნდა შეუკვეთოთ სწორედ მაულვურფი – ჩვენ ვართ საუკეთესო ჰორიზონტალური მიმართული ბურღვის კომპანია საქართველოს მაშტაბით. 2017 წლიდან ვფუნქციონირებთ და გვაქვს მდიდარი გამოცდილება მთელ ქვეყანაში, მათ შორის თბილისში, კავკასიონის რეგიონებში და სხვა მშრალ თუ ტენიან ზონებში.",
+            company_advantages_title: "ჩვენი უპირატესობები:",
+            company_adv_1: "<strong>გამოცდილება და პროფესიონალიზმი</strong>: 9 წელზე მეტი პრაქტიკა HDD პროექტებში, რაც უზრუნველყოფს სწრაფ, უსაფრთხო და ეკოლოგიურად სუფთა სამუშაოებს მინიმალური შეფერხებით.",
+            company_adv_2: "<strong>თანამედროვე ტექნიკა</strong>: ვიყენებთ Grundodrill 15XP-ის მსგავს მოდელებს, რომლებიც ადაპტირებულია საქართველოს სპეციფიკურ გრუნტებზე, და გვაქვს სპეციალური საბურღი თავები რთული ქანებისთვის.",
+            company_adv_3: "<strong>საქართველოს მაშტაბით მომსახურება</strong>: ვმუშაობთ მთელ ტერიტორიაზე, ურბანულ ზონებში თუ მთიან რაიონებში, და ვუზრუნველყოფთ სრულ სერვისს – დაგეგმარებიდან დამთავრებამდე.",
+            company_adv_4: "<strong>კლიენტების კმაყოფილება</strong>: როგორც ლოკალური კომპანია, ჩვენ ფოკუსირებულნი ვართ ხარისხზე, დროულობასა და კონკურენტულ ფასებზე, რაც გვაძლევს უპირატესობას უცხოურ თუ სხვა ადგილობრივ კონკურენტებზე.",
+            company_conclusion: "თუ გჭირდებათ ჰორიზონტალური ბურღვა მილების, კაბელების ან სხვა ინფრასტრუქტურის დასაგებად, დაგვიკავშირდით – ჩვენ გარანტიას გაძლევთ საუკეთესო შედეგებს საქართველოს უნიკალურ პირობებში!",
+            contact_title: "დაგვიკავშირდით ახლავე!",
+            contact_callout_1: "მზად ხართ მიწის ქვეშ წასვლისთვის ჭუჭყიანობის გარეშე?",
+            contact_callout_2: "მოდით, თქვენი პროექტი ჩავიწყოთ!",
+            whatsapp_btn: "WhatsApp-ით დაგვიკავშირდით",
+            telegram_btn: "Telegram-ით დაგვიკავშირდით",
+            form_name_label: "თქვენი სახელი",
+            form_phone_label: "ტელეფონი",
+            form_email_label: "Email",
+            form_message_label: "შეტყობინება",
+            form_submit: "გაგზავნა",
+            footer_text: "© 2026 მაულვურფი. ყველა უფლება დაცულია."
+        },
+        ru: {
+            header_title: "Маулвурф",
+            header_subtitle: "Лучший сервис горизонтально-направленного бурения в Грузии!",
+            about_title: "Grundodrill 15XP",
+            about_text: "Grundodrill 15XP — одна из самых эффективных и универсальных установок горизонтально-направленного бурения (ГНБ), специально разработанная для работы в различных типах почв и геологических условиях. Разнообразный грунт Грузии — включающий скальные образования (такие как гранитоиды, амфиболиты и серпентиниты в горах Кавказа), глинистые, песчаные и торфяные почвы (такие как красноземы и желтоземы в Колхиде, коричневые почвы и черноземы на востоке, а также лугово-коричневые и засоленные почвы в сухих субтропиках) — требует техники, которая легко адаптируется и обеспечивает высокую производительность в сложном рельефе.",
+            about_advantages_title: "Преимущества в условиях Грузии:",
+            about_adv_1: "<strong>Разнообразие грунтов</strong>: Буровые инструменты установки идеально адаптированы к различным типам грунта, что обеспечивает оптимальный прогресс в глине, песке, скалах или торфяниках. Это особенно важно в горных регионах Грузии, где геология включает туфы, мергели и породы высокой прочности (например, до 130 МПа).",
+            about_adv_2: "<strong>Технические преимущества</strong>: Сила тяги и проталкивания 140 кН, буровые штанги типа TD 61 и высокая производительность бентонитового насоса позволяют прокладывать трубы диаметром до ND 400 на расстояние до 350 метров. Это идеальное решение для городских и горных районов Грузии, где традиционные раскопки затруднены из-за рельефа и экологических ограничений.",
+            about_adv_3: "<strong>Надежность и комфорт</strong>: Робастная конструкция, дистанционное управление и интегрированные системы смешивания обеспечивают долговечность и безопасность в сложных условиях, таких как южные склоны Кавказа или Колхидская низменность.",
+            tqvia_title: "Система «Тквиа»",
+            tqvia_text: "У нас есть система «Тквиа» (Пуля), которая способна прокладывать коммуникации в балластных грунтах. Это пневматическое устройство ударного типа (impact mole) специально разработано для бестраншейной прокладки труб и кабелей в плотных и каменистых почвах, что обеспечивает эффективную и быструю работу в разнообразных условиях Грузии.",
+            company_title: "Почему Маулвурф?",
+            company_intro: "Почему стоит выбрать именно Маулвурф — мы являемся лучшей компанией по горизонтально-направленному бурению во всей Грузии. Мы работаем с 2017 года и обладаем богатым опытом работы по всей стране, включая Тбилиси, регионы Кавказа и другие засушливые или влажные зоны.",
+            company_advantages_title: "Наши преимущества:",
+            company_adv_1: "<strong>Опыт и профессионализм</strong>: Более 9 лет практики в ГНБ-проектах, что гарантирует быстрое, безопасное и экологически чистое выполнение работ с минимальными задержками.",
+            company_adv_2: "<strong>Современная техника</strong>: Мы используем такие модели, как Grundodrill 15XP, адаптированные к специфическим грунтам Грузии, и имеем специальные буровые головки для сложных пород.",
+            company_adv_3: "<strong>Обслуживание по всей Грузии</strong>: Мы работаем по всей территории страны, как в городских зонах, так и в горных районах, обеспечивая полный цикл услуг — от планирования до завершения.",
+            company_adv_4: "<strong>Удовлетворенность клиентов</strong>: Как локальная компания, мы ориентированы на качество, своевременность и конкурентные цены, что дает нам преимущество перед иностранными или другими местными конкурентами.",
+            company_conclusion: "Если вам требуется горизонтальное бурение для прокладки труб, кабелей или другой инфраструктуры, свяжитесь с нами — мы гарантируем лучший результат в уникальных условиях Грузии!",
+            contact_title: "Свяжитесь с нами прямо сейчас!",
+            contact_callout_1: "Готовы уйти под землю без лишней грязи?",
+            contact_callout_2: "Давайте начнем ваш проект!",
+            whatsapp_btn: "Связаться через WhatsApp",
+            telegram_btn: "Связаться через Telegram",
+            form_name_label: "Ваше имя",
+            form_phone_label: "Телефон",
+            form_email_label: "Email",
+            form_message_label: "Сообщение",
+            form_submit: "Отправить",
+            footer_text: "© 2026 Маулвурф. Все права защищены."
+        }
+    };
+
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('language', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    window.addEventListener('load', () => {
+        const saved = localStorage.getItem('language') || 'ka';
+        setLanguage(saved);
+    });
+
+    // Forma validatsiyasi (oldingi xabarda berilgan kod)
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        const submitBtn = document.getElementById('submitBtn');
+        const statusDiv = document.getElementById('formStatus');
+        const inputs = form.querySelectorAll('input, textarea');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', validateField);
+            input.addEventListener('blur', validateField);
+        });
+
+        function validateField(e) {
+            const field = e.target;
+            const errorElement = field.nextElementSibling?.classList.contains('error-message') 
+                                ? field.nextElementSibling 
+                                : field.parentElement.querySelector('.error-message');
+
+            let isValid = true;
+            let errorMsg = '';
+
+            if (field.required && !field.value.trim()) {
+                isValid = false;
+                errorMsg = 'ეს ველი სავალდებულოა';
+            }
+            else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                isValid = false;
+                errorMsg = 'გთხოვთ, მიუთითოთ ელ-ფოსტის სწორი ფორმატი';
+            }
+            else if (field.type === 'tel' && field.value && !/^\+995[0-9]{9}$/.test(field.value)) {
+                isValid = false;
+                errorMsg = 'ნომერი უნდა შეიცავდეს 9 ციფრს (+995)';
+            }
+            else if (field.minLength && field.value.length < field.minLength) {
+                isValid = false;
+                errorMsg = `საჭიროა მინიმუმ ${field.minLength} სიმბოლო.`;
+            }
+
+            if (errorElement) {
+                errorElement.textContent = errorMsg;
+                field.style.borderColor = isValid ? '' : '#ff6b6b';
+            }
+
+            checkFormValidity();
+        }
+
+        function checkFormValidity() {
+            let isFormValid = true;
+            inputs.forEach(input => {
+                if (input.required && !input.value.trim()) isFormValid = false;
+                if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) isFormValid = false;
+                if (input.type === 'tel' && input.value && !/^\+995[0-9]{9}$/.test(input.value)) isFormValid = false;
+            });
+            submitBtn.disabled = !isFormValid;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            inputs.forEach(input => validateField({ target: input }));
+
+            if (!submitBtn.disabled) {
+                statusDiv.style.display = 'block';
+                statusDiv.className = 'form-status success';
+                statusDiv.textContent = 'მადლობა! თქვენი შეტყობინება მიღებულია. უახლოეს დროში დაგიკავშირდებით!';
+                form.reset();
+                submitBtn.disabled = true;
+                setTimeout(() => statusDiv.style.display = 'none', 8000);
+            }
+        });
+    });
+</script>
+</body>
+</html>
